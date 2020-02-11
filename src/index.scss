@@ -1,0 +1,315 @@
+$background_color: #f3e9e0;
+$text_dark: #555555;
+$text_light: #329c81;
+$btn_color: #329c81;
+$btn_text_color: #f3e9e0;
+$border_color: #329c81;
+$border_size: 4px;
+$box_shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+/*=======================
+DEFAULT STYLES
+=========================*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  color: $text_dark;
+  background-color: $background_color;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+/*=======================
+ACCOUNT PAGE
+=========================*/
+
+.create__account {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .account__form {
+    flex-basis: 360px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: $border_size;
+    box-shadow: $box_shadow;
+    display: flex;
+    flex-direction: column;
+    input {
+      font-size: 18px;
+      padding: 14px;
+      margin-bottom: 10px;
+      border-radius: $border_size;
+      border: 1px solid $border_color;
+      transition: all 0.2s;
+      outline: none;
+    }
+    button {
+      background-color: $btn_color;
+      color: $btn_text_color;
+      font-size: 22px;
+      padding: 10px;
+      border-radius: $border_size;
+      border: 1px solid $border_color;
+      transition: all 0.2s;
+      outline: none;
+    }
+    button:hover {
+      background-color: #36a98c;
+    }
+    input:focus {
+      box-shadow: $box_shadow;
+    }
+  }
+}
+
+/*=======================
+ACCOUNT PAGE
+=========================*/
+.app {
+  .add__post {
+    background-color: #ffffff;
+    color: $text_dark !important;
+    margin-top: 20px;
+    border-radius: $border_size;
+    box-shadow: $box_shadow;
+    .add_post_header {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: $border_size;
+      h2 {
+        font-size: 18px;
+      }
+    }
+    .add_post_body {
+      padding: 10px;
+      .post_content {
+        width: 100%;
+        min-height: 100px;
+        max-width: 100%;
+        font-size: 20px;
+        border-radius: $border_size;
+        border: none;
+        outline: none;
+      }
+    }
+    .add_post_footer {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: $border_size;
+      .post__submit {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input {
+          outline: none;
+        }
+        button {
+          background-color: $btn_color;
+          color: $btn_text_color;
+          font-size: 22px;
+          padding: 6px 20px;
+          border-radius: $border_size;
+          border: 1px solid $border_color;
+          transition: all 0.2s;
+          outline: none;
+        }
+        button:hover {
+          background-color: #36a98c;
+        }
+      }
+    }
+  }
+  .post__list {
+    background: #ffffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    border-radius: $border_size;
+    box-shadow: $box_shadow;
+    .post {
+      display: flex;
+      flex-direction: column;
+      h2 {
+        font-size: 18px;
+        padding: 10px 10px 0px 10px;
+        color: $text_light;
+      }
+      .post_time {
+        padding: 0 10px 10px 10px;
+        font-size: 14px;
+      }
+      .post_content {
+        font-size: 20px;
+        padding: 10px;
+      }
+      .post_img {
+        width: 100%;
+        height: auto;
+      }
+      .status__bars {
+        background-color: #f4f4f4;
+        margin-top: 5px;
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(85, 85, 85, 0.3);
+        .thumbs__up,
+        .thumbs__down {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+        }
+        .thumbs__up {
+          border-right: 1px solid rgba(85, 85, 85, 0.3);
+        }
+        i {
+          font-size: 22px;
+          color: $text_dark;
+        }
+      }
+      .comment__list {
+        list-style: none;
+        padding: 10px;
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        .comment__item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 7px;
+          h3 {
+            flex: 1;
+            font-size: 14px;
+          }
+          p {
+            flex: 5;
+            font-size: 13px;
+          }
+          i {
+            flex: 1;
+            font-size: 15px;
+            display: flex;
+            justify-content: flex-end;
+            visibility: hidden;
+          }
+        }
+        .comment__item:hover {
+          i {
+            visibility: visible;
+          }
+        }
+      }
+      .comment__form {
+        padding: 0 10px 10px 10px;
+        input {
+          font-size: 13px;
+          width: 100%;
+          padding: 8px 5px;
+          border: 1px solid $border_color;
+          border-radius: $border_size;
+          outline: none;
+        }
+      }
+      .remove__btn {
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        button {
+          background-color: $btn_color;
+          color: $btn_text_color;
+          font-size: 22px;
+          padding: 6px 20px;
+          border-radius: $border_size;
+          border: 1px solid $border_color;
+          transition: all 0.2s;
+          outline: none;
+        }
+        button:hover {
+          background-color: #36a98c;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 637px) {
+  .container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .app {
+    padding: 0 15px;
+    .post__list {
+      .post {
+        .comment__list {
+          .comment__item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 7px;
+            h3 {
+              flex: 2;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .app {
+    .add__post {
+      .add_post_footer {
+        .post__submit {
+          flex-direction: column;
+          input {
+            align-self: flex-start;
+            margin-bottom: 15px;
+          }
+        }
+      }
+    }
+    .post__list {
+      .post {
+        .comment__list {
+          .comment__item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 7px;
+            h3 {
+              flex: 3;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
