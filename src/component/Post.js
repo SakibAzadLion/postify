@@ -12,7 +12,7 @@ class Post extends React.Component {
           egestas magna, at dignissim arcu. Quisque lorem dolor, lobortis sed
           nunc eget, dignissim suscipit ipsum. Praesent sit{" "}
         </p>
-        <img src="./images/post.jpg" alt="post_img" className="post_img" />
+        <img src="../images/post.jpg" alt="post_img" className="post_img" />
         <div className="status__bars">
           <div className="thumbs__up">
             <i className="fa fa-thumbs-up"></i>
