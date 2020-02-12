@@ -6,7 +6,7 @@ import { createStore, compose } from "redux";
 import rootReducer from "./reducers/root";
 
 const defaultState = {
-    posts: {a:1,b:2},
+    posts: [],
     comments: {}
 }
 

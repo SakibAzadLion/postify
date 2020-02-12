@@ -1,6 +1,8 @@
-export function increment(index) {
+export function addPost(code, desc, img) {
     return {
-        type: "INCREMENT_LIKES",
-        index
+        type: "ADD_POST",
+        code,
+        desc,
+        img
     }
 }

@@ -7,7 +7,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <div className="app">
-          <AddPost />
+          <AddPost addPost={this.props.addPost} />
           <ul className="post__list">
             <Post />
           </ul>
