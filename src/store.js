@@ -1,12 +1,12 @@
 import { createStore, compose } from "redux";
-import { syncHistoryWithStore } from "react-router-redux";
-import { browerHistory } from "react-router";
+// import { syncHistoryWithStore } from "react-router-redux";
+// import { browerHistory } from "react-router";
 
 //Import root reducer
 import rootReducer from "./reducers/root";
 
 const defaultState = {
-    posts: {},
+    posts: {a:1,b:2},
     comments: {}
 }
 
@@ -16,6 +16,6 @@ const enhancers = compose(
 
 const store = createStore(rootReducer, defaultState, enhancers);
 
-export const history = syncHistoryWithStore(browerHistory, store);
+// export const history = syncHistoryWithStore(browerHistory, store);
 
 export default store;
