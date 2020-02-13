@@ -37,7 +37,7 @@ class Post extends React.Component {
         <h2 className="user_name">{this.props.userId}</h2>
         <span className="post_time">34m</span>
         <p className="post_content">{this.props.post.desc}</p>
-        <img src={this.props.post.img} alt="post_img" className="post_img" />
+        {this.props.post.img ? <img src={this.props.post.img} alt={`post-image-${this.props.index}`} className="post_img" /> : ''}
         <div className="status__bars">
           <div className="thumbs__up">
             <i className="fa fa-thumbs-up"></i>

@@ -12,7 +12,7 @@ class AddPost extends React.Component {
     //2)Post date
     const id = uniqid();
     const desc = this.descRef.current.value;
-    const img = URL.createObjectURL(this.imgRef.current.files[0]) || '';
+    const img = this.imgRef.current.value ? URL.createObjectURL(this.imgRef.current.files[0]) :  '';
 
     //3)Add data to the state
     this.props.addPost(id, desc, img);
