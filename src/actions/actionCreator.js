@@ -6,3 +6,12 @@ export function addPost(code, desc, img) {
     img
   };
 }
+
+export function addComment(code, user, comment) {
+    return {
+        type: "ADD_COMMENT",
+        code,
+        user,
+        comment
+    }
+}

@@ -2,6 +2,22 @@ import React from "react";
 import 'font-awesome/css/font-awesome.min.css';
 
 class Post extends React.Component {
+  commentRef = React.createRef();
+
+  handleComment = e => {
+    //1)Prevent from submiting
+    e.preventDefault();
+
+    //2)Get the comment
+    const code = this.props.index;
+    const user = this.props.userId;
+    const comment = this.commentRef.current.value;
+    console.log(code, user, comment);
+
+    //3)Add comment to the state
+    this.props.addComment(code, user, comment);
+  }
+
   render() {
     return (
       <li className="post">
@@ -29,8 +45,8 @@ class Post extends React.Component {
             <i className="fa fa-times"></i>
           </li>
         </ul>
-        <form className="comment__form">
-          <input type="text" className="comment__inp" placeholder="Comment" />
+        <form className="comment__form" onSubmit={this.handleComment}>
+          <input type="text" ref={this.commentRef} className="comment__inp" placeholder="Comment" />
           <button type="submit" style={{ display: "none" }}></button>
         </form>
         <div className="remove__btn">

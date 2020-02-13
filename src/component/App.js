@@ -13,8 +13,10 @@ class App extends React.Component {
               <Post
                 key={post.code}
                 index={post.code}
-                post={post}
                 userId={this.props.match.params.userId}
+                post={post}
+                comments={this.props.comments}
+                addComment={this.props.addComment}
               />
             ))}
           </ul>
