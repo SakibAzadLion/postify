@@ -8,7 +8,7 @@ class AddPost extends React.Component {
   handleSubmit = e => {
     //1)Prevent app from submiting
     e.preventDefault();
-    
+
     //2)Post date
     const id = uniqid();
     const desc = this.descRef.current.value;
@@ -38,7 +38,12 @@ class AddPost extends React.Component {
         </div>
         <div className="add_post_footer">
           <form className="post__submit" onSubmit={this.handleSubmit}>
-            <input type="file" ref={this.imgRef} className="post__media" />
+            <input
+              type="file"
+              ref={this.imgRef}
+              className="post__media"
+              accept=".png, .jpg, .jpeg"
+            />
             <button type="submit" className="post_submit_btn">
               Post
             </button>

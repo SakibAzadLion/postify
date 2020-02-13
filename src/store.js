@@ -6,12 +6,12 @@ import { createStore, compose } from "redux";
 import rootReducer from "./reducers/root";
 
 const defaultState = {
-    posts: [],
-    comments: {}
-}
+  posts: [],
+  comments: {}
+};
 
 const enhancers = compose(
-    window.devToolsExtension ? window.devToolsExtension() : f => f
+  window.devToolsExtension ? window.devToolsExtension() : f => f
 );
 
 const store = createStore(rootReducer, defaultState, enhancers);
