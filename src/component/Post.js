@@ -4,15 +4,12 @@ class Post extends React.Component {
   render() {
     return (
       <li className="post">
-        <h2 className="user_name">Sakib Azad</h2>
+        <h2 className="user_name">{this.props.userId}</h2>
         <span className="post_time">34m</span>
         <p className="post_content">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-          laoreet aliquam felis, ac scelerisque ipsum consectetur a. Nunc vel
-          egestas magna, at dignissim arcu. Quisque lorem dolor, lobortis sed
-          nunc eget, dignissim suscipit ipsum. Praesent sit{" "}
+          {this.props.post.desc}
         </p>
-        <img src="../images/post.jpg" alt="post_img" className="post_img" />
+        <img src={this.props.post.img} alt="post_img" className="post_img" />
         <div className="status__bars">
           <div className="thumbs__up">
             <i className="fa fa-thumbs-up"></i>

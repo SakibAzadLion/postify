@@ -9,7 +9,7 @@ class App extends React.Component {
         <div className="app">
           <AddPost addPost={this.props.addPost} />
           <ul className="post__list">
-            <Post />
+            {this.props.posts.map((post, i) => <Post key={post.code} index={post.code} post={post} userId={this.props.match.params.userId} />)}
           </ul>
         </div>
       </div>

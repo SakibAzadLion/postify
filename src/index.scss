@@ -145,13 +145,13 @@ ACCOUNT PAGE
     }
   }
   .post__list {
-    background: #ffffff;
     margin-top: 20px;
-    margin-bottom: 20px;
     list-style: none;
-    border-radius: $border_size;
-    box-shadow: $box_shadow;
     .post {
+      background: #ffffff;
+      margin-bottom: 20px;
+      border-radius: $border_size;
+      box-shadow: $box_shadow;
       display: flex;
       flex-direction: column;
       h2 {
