@@ -1,5 +1,5 @@
 import React from "react";
-import 'font-awesome/css/font-awesome.min.css';
+import "font-awesome/css/font-awesome.min.css";
 
 class Post extends React.Component {
   commentRef = React.createRef();
@@ -16,7 +16,20 @@ class Post extends React.Component {
 
     //3)Add comment to the state
     this.props.addComment(code, user, comment);
-  }
+
+    //4)Reset From
+    e.currentTarget.reset();
+  };
+
+  renderComment = (comment, i) => {
+    return (
+      <li className="comment__item" key={i}>
+        <h3>{comment.user}</h3>
+        <p>{comment.text}</p>
+        <i className="fa fa-times"></i>
+      </li>
+    );
+  };
 
   render() {
     return (
@@ -34,19 +47,15 @@ class Post extends React.Component {
           </div>
         </div>
         <ul className="comment__list">
-          <li className="comment__item">
-            <h3>Sakib Azad</h3>
-            <p>Funney very funney</p>
-            <i className="fa fa-times"></i>
-          </li>
-          <li className="comment__item">
-            <h3>Sakib Azad</h3>
-            <p>Funney very funney</p>
-            <i className="fa fa-times"></i>
-          </li>
+          {this.props.comments[this.props.index].map(this.renderComment)}
         </ul>
         <form className="comment__form" onSubmit={this.handleComment}>
-          <input type="text" ref={this.commentRef} className="comment__inp" placeholder="Comment" />
+          <input
+            type="text"
+            ref={this.commentRef}
+            className="comment__inp"
+            placeholder="Comment"
+          />
           <button type="submit" style={{ display: "none" }}></button>
         </form>
         <div className="remove__btn">
