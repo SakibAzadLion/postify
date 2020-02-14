@@ -7,6 +7,13 @@ export function addPost(code, desc, img) {
   };
 }
 
+export function removePost(index) {
+  return {
+    type: "REMOVE_POST",
+    index
+  }
+}
+
 export function addComment(code, user, comment) {
     return {
         type: "ADD_COMMENT",

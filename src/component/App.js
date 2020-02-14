@@ -12,11 +12,13 @@ class App extends React.Component {
             {this.props.posts.map((post, i) => (
               <Post
                 key={post.code}
-                index={post.code}
+                code={post.code}
+                index={i}
                 userId={this.props.match.params.userId}
                 post={post}
                 comments={this.props.comments}
                 addComment={this.props.addComment}
+                removePost={this.props.removePost}
               />
             ))}
           </ul>

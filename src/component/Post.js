@@ -9,7 +9,7 @@ class Post extends React.Component {
     e.preventDefault();
 
     //2)Get the comment
-    const code = this.props.index;
+    const code = this.props.code;
     const user = this.props.userId;
     const comment = this.commentRef.current.value;
     console.log(code, user, comment);
@@ -37,7 +37,7 @@ class Post extends React.Component {
         <h2 className="user_name">{this.props.userId}</h2>
         <span className="post_time">34m</span>
         <p className="post_content">{this.props.post.desc}</p>
-        {this.props.post.img ? <img src={this.props.post.img} alt={`post-image-${this.props.index}`} className="post_img" /> : ''}
+        {this.props.post.img ? <img src={this.props.post.img} alt={`post-image-${this.props.code}`} className="post_img" /> : ''}
         <div className="status__bars">
           <div className="thumbs__up">
             <i className="fa fa-thumbs-up"></i>
@@ -47,7 +47,7 @@ class Post extends React.Component {
           </div>
         </div>
         <ul className="comment__list">
-          {this.props.comments[this.props.index].map(this.renderComment)}
+          {this.props.comments[this.props.code].map(this.renderComment)}
         </ul>
         <form className="comment__form" onSubmit={this.handleComment}>
           <input
@@ -59,7 +59,7 @@ class Post extends React.Component {
           <button type="submit" style={{ display: "none" }}></button>
         </form>
         <div className="remove__btn">
-          <button type="button" className="remove_post_btn">
+          <button type="button" className="remove_post_btn" onClick={() => this.props.removePost(this.props.index)}>
             Remove Post
           </button>
         </div>
