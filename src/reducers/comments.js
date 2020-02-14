@@ -1,10 +1,13 @@
 import store from "../store";
 
 function postComments(state = [], action) {
+  const i = action.index;
   switch (action.type) {
     case "ADD_COMMENT":
       // return the new state with the new comment
       return [...state, { user: action.user, text: action.comment }];
+    case "REMOVE_COMMENT":
+      return [...state.slice(0, i), ...state.slice(i + 1)];
   }
   console.log(state, action);
   return state;

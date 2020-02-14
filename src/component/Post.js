@@ -26,7 +26,7 @@ class Post extends React.Component {
       <li className="comment__item" key={i}>
         <h3>{comment.user}</h3>
         <p>{comment.text}</p>
-        <i className="fa fa-times"></i>
+        <i className="fa fa-times" onClick={() => this.props.removeComment(this.props.code, i)}></i>
       </li>
     );
   };

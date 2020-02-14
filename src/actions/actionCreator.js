@@ -22,3 +22,11 @@ export function addComment(code, user, comment) {
         comment
     }
 }
+
+export function removeComment(code, index) {
+  return {
+    type: "REMOVE_COMMENT",
+    code,
+    index
+  }
+}

@@ -19,6 +19,7 @@ class App extends React.Component {
                 comments={this.props.comments}
                 addComment={this.props.addComment}
                 removePost={this.props.removePost}
+                removeComment={this.props.removeComment}
               />
             ))}
           </ul>
