@@ -17,9 +17,12 @@ class App extends React.Component {
                 userId={this.props.match.params.userId}
                 post={post}
                 comments={this.props.comments}
+                likeDislike={this.props.likeDislike}
                 addComment={this.props.addComment}
                 removePost={this.props.removePost}
                 removeComment={this.props.removeComment}
+                toogleLike={this.props.toogleLike}
+                toogleDislike={this.props.toogleDislike}
               />
             ))}
           </ul>

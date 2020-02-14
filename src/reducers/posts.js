@@ -7,13 +7,16 @@ function posts(state = [], action) {
       console.log("post added");
       return [
         ...state,
-        { code: action.code, desc: action.desc, img: action.img }
+        {
+          code: action.code,
+          desc: action.desc,
+          img: action.img,
+          liked: action.liked,
+          disliked: action.disliked
+        }
       ];
     case "REMOVE_POST":
-      return [
-        ...state.slice(0, i),
-        ...state.slice(i+1,)
-      ];
+      return [...state.slice(0, i), ...state.slice(i + 1)];
   }
   return state;
 }

@@ -26,24 +26,81 @@ class Post extends React.Component {
       <li className="comment__item" key={i}>
         <h3>{comment.user}</h3>
         <p>{comment.text}</p>
-        <i className="fa fa-times" onClick={() => this.props.removeComment(this.props.code, i)}></i>
+        <i
+          className="fa fa-times"
+          onClick={() => this.props.removeComment(this.props.code, i)}
+        ></i>
       </li>
     );
   };
 
+  toogleLikeDislike = type => {
+    const code = this.props.code.replace(/\s/g, "_");
+    const user = this.props.userId.replace(/\s/g, "_");
+    const index = this.props.index;
+    const liked = this.props.likeDislike.hasOwnProperty(`${user}_${code}`)
+      ? this.props.likeDislike[`${user}_${code}`].liked
+      : false;
+    const disliked = this.props.likeDislike.hasOwnProperty(`${user}_${code}`)
+      ? this.props.likeDislike[`${user}_${code}`].disliked
+      : false;
+
+    if (type === "like") {
+      this.props.toogleLike(code, user, index, !liked);
+      this.props.toogleDislike(code, user, index, false);      
+    } else {
+      this.props.toogleDislike(code, user, index, !disliked);
+      this.props.toogleLike(code, user, index, false);
+    }
+  };
+
+  // toogleDislike = type => {
+  //   const code = this.props.code.replace(/\s/g, "_");
+  //   const user = this.props.userId.replace(/\s/g, "_");
+  //   const index = this.props.index;
+  //   // const disliked = this.props.likeDislike[user][code].disliked || false;
+
+  //   this.props.toogleDislike(code, user, index, !disliked);
+  // };
+
   render() {
+    const code = this.props.code.replace(/\s/g, "_");
+    const user = this.props.userId.replace(/\s/g, "_");
+
+    const liked = this.props.likeDislike.hasOwnProperty(`${user}_${code}`)
+      ? this.props.likeDislike[`${user}_${code}`].liked
+      : false;
+
+    const disliked = this.props.likeDislike.hasOwnProperty(`${user}_${code}`)
+      ? this.props.likeDislike[`${user}_${code}`].disliked
+      : false;
+
     return (
       <li className="post">
         <h2 className="user_name">{this.props.userId}</h2>
         <span className="post_time">34m</span>
         <p className="post_content">{this.props.post.desc}</p>
-        {this.props.post.img ? <img src={this.props.post.img} alt={`post-image-${this.props.code}`} className="post_img" /> : ''}
+        {this.props.post.img ? (
+          <img
+            src={this.props.post.img}
+            alt={`post-image-${this.props.code}`}
+            className="post_img"
+          />
+        ) : (
+          ""
+        )}
         <div className="status__bars">
           <div className="thumbs__up">
-            <i className="fa fa-thumbs-up"></i>
+            <i
+              className={`fa fa-thumbs-up ${liked ? "liked" : ""}`}
+              onClick={() => this.toogleLikeDislike("like")}
+            ></i>
           </div>
           <div className="thumbs__down">
-            <i className="fa fa-thumbs-down"></i>
+            <i
+              className={`fa fa-thumbs-down ${disliked ? "disliked" : ""}`}
+              onClick={() => this.toogleLikeDislike("dislike")}
+            ></i>
           </div>
         </div>
         <ul className="comment__list">
@@ -59,7 +116,11 @@ class Post extends React.Component {
           <button type="submit" style={{ display: "none" }}></button>
         </form>
         <div className="remove__btn">
-          <button type="button" className="remove_post_btn" onClick={() => this.props.removePost(this.props.index)}>
+          <button
+            type="button"
+            className="remove_post_btn"
+            onClick={() => this.props.removePost(this.props.index)}
+          >
             Remove Post
           </button>
         </div>

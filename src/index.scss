@@ -42,6 +42,11 @@ body {
   margin: 0 auto;
 }
 
+.liked,
+.disliked {
+  color: $text_light!important;
+}
+
 /*=======================
 ACCOUNT PAGE
 =========================*/

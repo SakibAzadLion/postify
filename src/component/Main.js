@@ -6,7 +6,8 @@ import App from "./App";
 function mapStateToProps(state) {
     return {
         posts: state.posts,
-        comments: state.comments
+        comments: state.comments,
+        likeDislike: state.likeDislike
     }
 }
 

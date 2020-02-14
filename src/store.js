@@ -7,7 +7,8 @@ import rootReducer from "./reducers/root";
 
 const defaultState = {
   posts: [],
-  comments: {}
+  comments: {},
+  likeDislike: {}
 };
 
 const enhancers = compose(
