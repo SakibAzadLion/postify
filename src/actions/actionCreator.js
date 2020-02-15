@@ -14,7 +14,7 @@ export function removePost(index) {
   };
 }
 
-export function addComment(code, user, comment, ) {
+export function addComment(code, user, comment) {
   return {
     type: "ADD_COMMENT",
     code,
@@ -31,6 +31,13 @@ export function removeComment(code, index) {
   };
 }
 
+export function removeCommentObj(code) {
+  return {
+    type: "REMOVE_COMMENT_OBJ",
+    code
+  };
+}
+
 export function toogleLike(code, user, index, liked) {
   return {
     type: "TOOGLE_LIKE",
@@ -38,7 +45,7 @@ export function toogleLike(code, user, index, liked) {
     user,
     index,
     liked
-  }
+  };
 }
 
 export function toogleDislike(code, user, index, disliked) {
@@ -48,5 +55,13 @@ export function toogleDislike(code, user, index, disliked) {
     user,
     index,
     disliked
-  }
+  };
+}
+
+export function removeLikeDislike(user, code) {
+  return {
+    type: "REMOVE_LIKE_DISLIKE",
+    user,
+    code
+  };
 }

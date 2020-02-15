@@ -23,6 +23,8 @@ class App extends React.Component {
                 removeComment={this.props.removeComment}
                 toogleLike={this.props.toogleLike}
                 toogleDislike={this.props.toogleDislike}
+                removeLikeDislike={this.props.removeLikeDislike}
+                removeCommentObj={this.props.removeCommentObj}
               />
             ))}
           </ul>

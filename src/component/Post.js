@@ -54,15 +54,6 @@ class Post extends React.Component {
     }
   };
 
-  // toogleDislike = type => {
-  //   const code = this.props.code.replace(/\s/g, "_");
-  //   const user = this.props.userId.replace(/\s/g, "_");
-  //   const index = this.props.index;
-  //   // const disliked = this.props.likeDislike[user][code].disliked || false;
-
-  //   this.props.toogleDislike(code, user, index, !disliked);
-  // };
-
   render() {
     const code = this.props.code.replace(/\s/g, "_");
     const user = this.props.userId.replace(/\s/g, "_");
@@ -119,7 +110,11 @@ class Post extends React.Component {
           <button
             type="button"
             className="remove_post_btn"
-            onClick={() => this.props.removePost(this.props.index)}
+            onClick={() => {
+              this.props.removeLikeDislike(user, code)
+              this.props.removeCommentObj(code);
+              this.props.removePost(this.props.index)
+            }}
           >
             Remove Post
           </button>

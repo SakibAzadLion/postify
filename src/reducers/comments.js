@@ -14,13 +14,26 @@ function postComments(state = [], action) {
 }
 
 function comments(state = [], action) {
-  if (typeof action.code !== "undefined") {
-    return {
-      //Take the current state
-      ...state,
-      //Overwrite this post with a new one
-      [action.code]: postComments(state[action.code], action)
-    };
+  switch (action.type) {
+    case "REMOVE_COMMENT_OBJ":
+      const newState = { ...state };
+      delete newState[action.code];
+      console.log(newState);
+
+      return {
+        ...newState
+      };
+
+      break;
+    default:
+      if (typeof action.code !== "undefined") {
+        return {
+          //Take the current state
+          ...state,
+          //Overwrite this post with a new one
+          [action.code]: postComments(state[action.code], action)
+        };
+      }
   }
   return state;
 }
