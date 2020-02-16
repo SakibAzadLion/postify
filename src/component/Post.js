@@ -1,5 +1,4 @@
 import React from "react";
-import moment from "moment";
 import Moment from "react-moment";
 import "font-awesome/css/font-awesome.min.css";
 
@@ -72,7 +71,21 @@ class Post extends React.Component {
     const disliked = this.props.likeDislike.hasOwnProperty(`${user}_${code}`)
       ? this.props.likeDislike[`${user}_${code}`].disliked
       : false;
-    console.log(this.props.post.date);
+    
+    const totalLikes = Object.keys(this.props.likeDislike).reduce((total, key) => {
+      if (key.includes(code)) {
+        if (this.props.likeDislike[key].liked) return total += 1;
+      }
+      return total;
+    }, 0);
+
+    const totalDislikes = Object.keys(this.props.likeDislike).reduce((total, key) => {
+      if (key.includes(code)) {
+        if (this.props.likeDislike[key].disliked) return total += 1;
+      }
+      return total;
+    }, 0);
+
     return (
       <li className="post">
         <h2 className="user_name">{this.props.post.user}</h2>
@@ -89,6 +102,7 @@ class Post extends React.Component {
         ) : (
           ""
         )}
+        <small>{`${totalLikes} likes, ${totalDislikes} dislikes`}</small>
         <div className="status__bars">
           <div className="thumbs__up">
             <i
