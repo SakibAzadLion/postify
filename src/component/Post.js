@@ -110,19 +110,23 @@ class Post extends React.Component {
           />
           <button type="submit" style={{ display: "none" }}></button>
         </form>
-        <div className="remove__btn">
-          <button
-            type="button"
-            className="remove_post_btn"
-            onClick={() => {
-              this.props.removeLikeDislike(user, code);
-              this.props.removeCommentObj(code);
-              this.props.removePost(this.props.index);
-            }}
-          >
-            Remove Post
-          </button>
-        </div>
+        {this.props.post.user === this.props.userId ? (
+          <div className="remove__btn">
+            <button
+              type="button"
+              className="remove_post_btn"
+              onClick={() => {
+                this.props.removeLikeDislike(user, code);
+                this.props.removeCommentObj(code);
+                this.props.removePost(this.props.index);
+              }}
+            >
+              Remove Post
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
       </li>
     );
   }
