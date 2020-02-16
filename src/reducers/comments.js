@@ -18,7 +18,6 @@ function comments(state = [], action) {
     case "REMOVE_COMMENT_OBJ":
       const newState = { ...state };
       delete newState[action.code];
-      console.log(newState);
 
       return {
         ...newState
