@@ -5,6 +5,6 @@ import posts from "./posts";
 import comments from "./comments";
 import likeDislike from "./likeDislike";
 
-const rootReducer = combineReducers({posts, comments, likeDislike});
+const rootReducer = combineReducers({ posts, comments, likeDislike });
 
 export default rootReducer;

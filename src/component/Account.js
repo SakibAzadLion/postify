@@ -12,7 +12,7 @@ class Account extends React.Component {
 
     //3) Push the url
     this.props.history.push(`/user/${userId}`);
-  }
+  };
 
   render() {
     return (

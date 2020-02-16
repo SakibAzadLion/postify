@@ -1,10 +1,16 @@
 import React from "react";
 import uniqid from "uniqid";
 import moment from "moment";
+import PropTypes from "prop-types";
 
 class AddPost extends React.Component {
   descRef = React.createRef();
   imgRef = React.createRef();
+
+  static propTypes = {
+    userId: PropTypes.string,
+    addPost: PropTypes.func
+  };
 
   handleSubmit = e => {
     //1)Prevent app from submiting
@@ -14,8 +20,10 @@ class AddPost extends React.Component {
     const user = this.props.userId;
     const id = uniqid();
     const desc = this.descRef.current.value;
-    const img = this.imgRef.current.value ? URL.createObjectURL(this.imgRef.current.files[0]) :  '';
-    const date = moment().format();;
+    const img = this.imgRef.current.value
+      ? URL.createObjectURL(this.imgRef.current.files[0])
+      : "";
+    const date = moment().format();
 
     //3)Add data to the state
     this.props.addPost(user, id, desc, img, date);

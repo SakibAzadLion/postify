@@ -22,7 +22,7 @@ function likeDislike(state = [], action) {
       }
     case "REMOVE_LIKE_DISLIKE":
       if (typeof action.code !== "undefined") {
-        const newState = {...state};
+        const newState = { ...state };
 
         delete newState[`${action.user}_${action.code}`];
 

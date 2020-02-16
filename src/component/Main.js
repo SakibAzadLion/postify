@@ -4,15 +4,15 @@ import * as actionCreator from "../actions/actionCreator";
 import App from "./App";
 
 function mapStateToProps(state) {
-    return {
-        posts: state.posts,
-        comments: state.comments,
-        likeDislike: state.likeDislike
-    }
+  return {
+    posts: state.posts,
+    comments: state.comments,
+    likeDislike: state.likeDislike
+  };
 }
 
 function mapDispachtoProps(dispatch) {
-    return bindActionCreators(actionCreator, dispatch);
+  return bindActionCreators(actionCreator, dispatch);
 }
 
 const Main = connect(mapStateToProps, mapDispachtoProps)(App);

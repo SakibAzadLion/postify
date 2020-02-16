@@ -1,9 +1,26 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Moment from "react-moment";
 import "font-awesome/css/font-awesome.min.css";
 
 class Post extends React.Component {
   commentRef = React.createRef();
+
+  static propTypes = {
+    code: PropTypes.string,
+    index: PropTypes.number,
+    userId: PropTypes.string,
+    post: PropTypes.object,
+    comments: PropTypes.object,
+    likeDislike: PropTypes.object,
+    addComment: PropTypes.func,
+    removePost: PropTypes.func,
+    removeComment: PropTypes.func,
+    toogleLike: PropTypes.func,
+    toogleDislike: PropTypes.func,
+    removeLikeDislike: PropTypes.func,
+    removeCommentObj: PropTypes.func
+  };
 
   handleComment = e => {
     //1)Prevent from submiting
@@ -26,6 +43,7 @@ class Post extends React.Component {
       <li className="comment__item" key={i}>
         <h3>{comment.user}</h3>
         <p>{comment.text}</p>
+
         {/** If user is not commenter then he can't delete comment */}
         {comment.user === this.props.userId ? (
           <i
