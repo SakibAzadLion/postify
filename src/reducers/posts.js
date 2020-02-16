@@ -12,8 +12,6 @@ function posts(state = [], action) {
           code: action.code,
           desc: action.desc,
           img: action.img,
-          liked: action.liked,
-          disliked: action.disliked,
           date: action.date
         }
       ];
