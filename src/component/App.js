@@ -7,7 +7,10 @@ class App extends React.Component {
     return (
       <div className="container">
         <div className="app">
-          <AddPost addPost={this.props.addPost} />
+          <AddPost
+            addPost={this.props.addPost}
+            userId={this.props.match.params.userId}
+          />
           <ul className="post__list">
             {this.props.posts.map((post, i) => (
               <Post

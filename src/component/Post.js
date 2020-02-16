@@ -70,7 +70,7 @@ class Post extends React.Component {
     console.log(this.props.post.date);
     return (
       <li className="post">
-        <h2 className="user_name">{this.props.userId}</h2>
+        <h2 className="user_name">{this.props.post.user}</h2>
         <span className="post_time">
           <Moment fromNow>{this.props.post.date}</Moment>
         </span>

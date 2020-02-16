@@ -11,13 +11,14 @@ class AddPost extends React.Component {
     e.preventDefault();
 
     //2)Post date
+    const user = this.props.userId;
     const id = uniqid();
     const desc = this.descRef.current.value;
     const img = this.imgRef.current.value ? URL.createObjectURL(this.imgRef.current.files[0]) :  '';
     const date = moment().format();;
 
     //3)Add data to the state
-    this.props.addPost(id, desc, img, date);
+    this.props.addPost(user, id, desc, img, date);
 
     //4)Reset Form
     this.descRef.current.value = "";

@@ -8,6 +8,7 @@ function posts(state = [], action) {
       return [
         ...state,
         {
+          user: action.user,
           code: action.code,
           desc: action.desc,
           img: action.img,

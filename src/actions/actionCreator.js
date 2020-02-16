@@ -1,6 +1,7 @@
-export function addPost(code, desc, img, date) {
+export function addPost(user, code, desc, img, date) {
   return {
     type: "ADD_POST",
+    user,
     code,
     desc,
     img,
