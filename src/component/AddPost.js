@@ -1,5 +1,6 @@
 import React from "react";
 import uniqid from "uniqid";
+import moment from "moment";
 
 class AddPost extends React.Component {
   descRef = React.createRef();
@@ -13,9 +14,10 @@ class AddPost extends React.Component {
     const id = uniqid();
     const desc = this.descRef.current.value;
     const img = this.imgRef.current.value ? URL.createObjectURL(this.imgRef.current.files[0]) :  '';
+    const date = moment().format();;
 
     //3)Add data to the state
-    this.props.addPost(id, desc, img);
+    this.props.addPost(id, desc, img, date);
 
     //4)Reset Form
     this.descRef.current.value = "";

@@ -1,4 +1,6 @@
 import React from "react";
+import moment from "moment";
+import Moment from "react-moment";
 import "font-awesome/css/font-awesome.min.css";
 
 class Post extends React.Component {
@@ -47,7 +49,7 @@ class Post extends React.Component {
 
     if (type === "like") {
       this.props.toogleLike(code, user, index, !liked);
-      this.props.toogleDislike(code, user, index, false);      
+      this.props.toogleDislike(code, user, index, false);
     } else {
       this.props.toogleDislike(code, user, index, !disliked);
       this.props.toogleLike(code, user, index, false);
@@ -65,11 +67,13 @@ class Post extends React.Component {
     const disliked = this.props.likeDislike.hasOwnProperty(`${user}_${code}`)
       ? this.props.likeDislike[`${user}_${code}`].disliked
       : false;
-
+    console.log(this.props.post.date);
     return (
       <li className="post">
         <h2 className="user_name">{this.props.userId}</h2>
-        <span className="post_time">34m</span>
+        <span className="post_time">
+          <Moment fromNow>{this.props.post.date}</Moment>
+        </span>
         <p className="post_content">{this.props.post.desc}</p>
         {this.props.post.img ? (
           <img
@@ -111,9 +115,9 @@ class Post extends React.Component {
             type="button"
             className="remove_post_btn"
             onClick={() => {
-              this.props.removeLikeDislike(user, code)
+              this.props.removeLikeDislike(user, code);
               this.props.removeCommentObj(code);
-              this.props.removePost(this.props.index)
+              this.props.removePost(this.props.index);
             }}
           >
             Remove Post

@@ -12,7 +12,8 @@ function posts(state = [], action) {
           desc: action.desc,
           img: action.img,
           liked: action.liked,
-          disliked: action.disliked
+          disliked: action.disliked,
+          date: action.date
         }
       ];
     case "REMOVE_POST":

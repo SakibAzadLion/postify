@@ -1,9 +1,10 @@
-export function addPost(code, desc, img) {
+export function addPost(code, desc, img, date) {
   return {
     type: "ADD_POST",
     code,
     desc,
-    img
+    img,
+    date
   };
 }
 
