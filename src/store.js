@@ -1,4 +1,5 @@
 import { createStore, compose } from "redux";
+import { throttle } from "lodash";
 import { loadState, saveState } from "./localStorage";
 
 //Import root reducer
@@ -18,6 +19,6 @@ const enhancers = compose(
 
 const store = createStore(rootReducer, persistedState, enhancers);
 
-store.subscribe(() => saveState(store.getState()));
+store.subscribe(throttle(() => saveState(store.getState())), 1000);
 
 export default store;
