@@ -9,7 +9,7 @@ function postComments(state = [], action) {
     case "REMOVE_COMMENT":
       return [...state.slice(0, i), ...state.slice(i + 1)];
   }
-  console.log(state, action);
+
   return state;
 }
 
@@ -35,6 +35,7 @@ function comments(state = [], action) {
         };
       }
   }
+
   return state;
 }
 

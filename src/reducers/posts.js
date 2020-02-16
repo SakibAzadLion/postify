@@ -4,7 +4,6 @@ function posts(state = [], action) {
   const i = action.index;
   switch (action.type) {
     case "ADD_POST":
-      console.log("post added");
       return [
         ...state,
         {
